@@ -52,16 +52,15 @@ class Images extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        console.log("image clicked");
         // Destructure the name and value properties off of event.target
         // Update the appropriate state
         const curr_key = event.target.id;
         var shuffleImages = this.state.images;
-        console.log("curr_key: " + curr_key);
-        console.log(shuffleImages);
+        console.log("curr_key cliked: " + shuffleImages[curr_key].clicked);
         //check to see if curr_key's clicked value has been clicked before.
         if(shuffleImages[curr_key].clicked){
             shuffleImages = UTIL.shuffle(shuffleImages);
+            shuffleImages[curr_key].clicked = false;
             this.setState({
                 images : shuffleImages,
                 score : 0,
@@ -100,14 +99,13 @@ class Images extends Component {
                 </Row>
                 <Row>
                     <Jumbotron>
-                        <h3>Clicky Game!!</h3>
+                        <h3>Clicky Game!!!</h3>
                         <h5>Click on an image to earn points, but don't click on any more than once! </h5>
                     </Jumbotron>
                 </Row>
                 <Row>
                     <main className="container">
                         {this.state.images.map(image => {
-                            console.log(image);
                             return (
                             <div role="img" aria-label="click item" key={image.key} className={(image.key%2===0) ? "click-item float-left" : "click-item float-right"}>
                                 <img alt="disney" height="150px" width="140px" id={image.key} src={image.src} key={image.key} className="border border-dark click-item" onClick={this.handleClick} />

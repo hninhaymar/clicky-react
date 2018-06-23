@@ -2,7 +2,7 @@
   "name": "clicky",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://https://hninhaymar.github.io/clicky",
+  "homepage": "https://hninhaymar.github.io/clicky-react",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "react": "^16.4.1",
